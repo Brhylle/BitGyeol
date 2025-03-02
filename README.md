@@ -14,7 +14,12 @@ This project is initiated as a _case study_ to uncover how **adaptive street and
 
 ### ⏳ Customizable Time and Date
 - Our real-time clock employs **UNIX time**.
-- These are **configurable** via commands (serial monitor):<br> ```b HH:MM:SS v YY/MM/DD```,<br> time and date **respectively**. (make sure that the baud rate is configured to default `9600`)
+- These are **configurable** via commands (serial monitor):<br>
+
+  ```
+    b HH:MM:SS v YY/MM/DD
+  ```
+  time and date **respectively**. (make sure that the baud rate is configured to default `9600`)
 - More commands available in `BitGyeol/figs/PrimitiveCommands-rev1.1.pdf`
 
 ### 🎉 Customizable Greetings
@@ -34,7 +39,7 @@ git clone https://github.com/Brhylle/BitGyeol.git
 ```
 
 </details>
-<details>
+<details close>
   <summary>2️⃣ Install Required Arduino Libraries</summary>
 
   The system depends on three Arduino libraries:
@@ -55,9 +60,9 @@ git clone https://github.com/Brhylle/BitGyeol.git
     </ol>
   </details>
   
-  <details>
+  <details close>
     <summary>
-    📌 Way #2: 📌 Install Manually from ZIP
+    📌 Way #2: Install Manually from ZIP
     </summary>
     <ol>
       <li>Open Arduino IDE.</li>
@@ -67,4 +72,18 @@ git clone https://github.com/Brhylle/BitGyeol.git
   </details>
 </details>
 
+  <details close>
+    <summary>
+      3️⃣ Compile and Upload the Code
+    </summary>
+    <ol>
+      <li>Connect your Arduino board.</li>
+      <li>Open the project’s `.ino` file in Arduino IDE.</li>
+      <li>Select the correct Board and Port from Tools → Board & Port.</li>
+      <li>Click Upload (🔼).</li>
+    </ol>
+  </details>
 
+
+## 🙏 Acknowledgments
+Special thanks to Raven Fortin, for fixing LDR's wiring abnormalities, Tuazon, Leomar for handling the documentations, and Magnaye, Ace Crizller for helping me construct the house model!
