@@ -1,0 +1,65 @@
+#include <Servo.h>
+
+Servo myServo;
+Servo myDoorServo;  // Create a servo object to control a servo motor
+Servo myGarageServoOne;
+Servo myGarageServoTwo;
+
+int doorServoPin = 9;  // Change to a PWM-compatible pin
+int oneGaragePin = 10;  // Pin for first garage servo
+int twoGaragePin = 11;  // Pin for second garage servo
+
+// declared constants
+const uint8_t doorClosedValue = 180;
+const uint8_t doorOpenedValue = 0;
+
+const uint8_t garageOpenedValue = 90;
+const uint8_t garageClosedValue = 0;
+
+void setup() {
+  Serial.begin(9600);   // Initialize serial communication at 9600 baud rate
+
+  myDoorServo.attach(doorServoPin);  // Attach the door servo to pin 9
+  myGarageServoOne.attach(oneGaragePin);  // Attach the first garage servo to pin 10
+  myGarageServoTwo.attach(twoGaragePin);  // Attach the second garage servo to pin 11
+
+  Serial.println("Servos Control Initialized, And Is Ready To Use");
+
+  // Initialize garage servos to opened position
+  myGarageServoOne.write(garageOpenedValue);
+  myGarageServoTwo.write(garageClosedValue);
+}
+
+void loop() {
+  // Check if data is available to read from Serial input
+  if (Serial.available() > 0) {
+    int command = Serial.parseInt();  // Read the incoming data as an integer
+
+    // Process command for the door servo
+    if (command == 1) {
+      myDoorServo.write(doorOpenedValue);  // Open the door
+      Serial.println("Door opened");
+    } else if (command == 2) {
+      myDoorServo.write(doorClosedValue);  // Close the door
+      Serial.println("Door closed");
+    }
+
+    // Process command for garage servo one
+    if (command == 3) {
+      myGarageServoOne.write(garageOpenedValue);  // Open first garage servo
+      Serial.println("Garage 1 opened");
+    } else if (command == 4) {
+      myGarageServoOne.write(garageClosedValue);  // Close first garage servo
+      Serial.println("Garage 1 closed");
+    }
+
+    // Process command for garage servo two
+    if (command == 5) {
+      myGarageServoTwo.write(garageOpenedValue);  // Open second garage servo
+      Serial.println("Garage 2 opened");
+    } else if (command == 6) {
+      myGarageServoTwo.write(garageClosedValue);  // Close second garage servo
+      Serial.println("Garage 2 closed");
+    }
+  }
+}
